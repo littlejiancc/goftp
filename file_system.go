@@ -114,7 +114,7 @@ func (c *Client) Getwd() (string, error) {
 
 func commandNotSupporterdError(err error) bool {
 	respCode := err.(ftpError).Code()
-	return respCode == replyCommandSyntaxError || respCode == replyCommandNotImplemented
+	return respCode == replyCommandSyntaxError || respCode == replyCommandNotImplemented || respCode == replyFileError
 }
 
 // ReadDir fetches the contents of a directory, returning a list of
